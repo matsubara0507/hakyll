@@ -1,10 +1,12 @@
-resolver: nightly-2017-06-19
+resolver: nightly-2017-08-10
 extra-package-dbs: []
 extra-deps:
-- 'optparse-applicative-0.14.0.0'
-- 'pandoc-citeproc-0.10.5.1'
-- 'QuickCheck-2.10.0.1'
-- 'tasty-quickcheck-0.9'
+- Glob-0.7.14
+- haddock-library-1.4.3
+- hs-bibutils-5.5
+- hslua-0.5.0
+- pandoc-citeproc-0.10.5.1
+- rfc5051-0.1.0.3
 
 flags:
   hakyll:
@@ -14,3 +16,11 @@ flags:
 
 packages:
   - '.'
+  - location:
+      git: https://github.com/jgm/pandoc.git
+      commit: ced834076d8f4463c60a4f739a3d92a56d3e2183
+    extra-dep: true
+  - location:
+      git: https://github.com/matsubara0507/pandoc-citeproc.git
+      commit: 2a232dd33eb42ba73653a9661288a0026179c50f
+    extra-dep: true
