@@ -68,7 +68,7 @@ main = hakyllWith config $ do
   where
     withToc = defaultHakyllWriterOptions
         { writerTableOfContents = True
-        , writerTemplate        = Just "$toc$\n$body$"
+        , writerTemplate        = Nothing -- ToDo: Just "$toc$\n$body$"
         }
 
 

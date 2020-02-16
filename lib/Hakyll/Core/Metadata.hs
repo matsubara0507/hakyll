@@ -16,13 +16,13 @@ module Hakyll.Core.Metadata
 --------------------------------------------------------------------------------
 import           Control.Arrow                  (second)
 import           Control.Monad                  (forM)
-import           Data.Binary                    (Binary (..), getWord8,
-                                                 putWord8, Get)
+import           Data.Binary                    (Binary (..), Get, getWord8,
+                                                 putWord8)
 import qualified Data.HashMap.Strict            as HMS
 import qualified Data.Set                       as S
 import qualified Data.Text                      as T
 import qualified Data.Vector                    as V
-import qualified Data.Yaml.Extended                      as Yaml
+import qualified Data.Yaml.Extended             as Yaml
 import           Hakyll.Core.Dependencies
 import           Hakyll.Core.Identifier
 import           Hakyll.Core.Identifier.Pattern
@@ -44,7 +44,7 @@ lookupStringList key meta =
 
 
 --------------------------------------------------------------------------------
-class Monad m => MonadMetadata m where
+class (Monad m, MonadFail m) => MonadMetadata m where
     getMetadata    :: Identifier -> m Metadata
     getMatches     :: Pattern -> m [Identifier]
 

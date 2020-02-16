@@ -183,6 +183,9 @@ instance Monad Compiler where
             CompilerError e       -> return $ CompilerError e
     {-# INLINE (>>=) #-}
 
+
+--------------------------------------------------------------------------------
+instance MonadFail Compiler where
     fail = compilerThrow . return
     {-# INLINE fail #-}
 
